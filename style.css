@@ -1,0 +1,248 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #87ceeb, #1E90FF);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+.container {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+}
+.aquarium {
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(to bottom, #1E90FF, #00BFFF);
+    border: 15px solid #8B4513;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+}
+.fish {
+    position: absolute;
+}
+.fish-image {
+    width: 150%;
+    height: 150%;
+    object-fit: contain;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+.fish1 {
+    top: 15%;
+    width: 60px;
+    height: 45px;
+    animation: swim-left-to-right 18s infinite linear;
+}
+.fish2 {
+    top: 5%;
+    width: 80px;
+    height: 50px;
+    animation: swim-right-to-left 22s infinite linear;
+}
+.fish3 {
+    top: 30%;
+    width: 85px;
+    height: 70px;
+    animation: swim-turn-around 16s infinite ease-in-out;
+}
+.fish4 {
+    top: 70%;
+    width: 120px;
+    height: 100px;
+    animation: swim-turn-around-reverse 20s infinite ease-in-out;
+}
+.fish6 {
+    top: 50%;
+    width: 120px;
+    height: 100px;
+    animation: swim-left-to-right 13s infinite linear;
+}
+.plant {
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+}
+.plant-image {
+    width: 175%;
+    height: 175%;
+    object-fit: contain;
+}
+.plant1 {
+    left: 10%;
+    width: 80px;
+    height: 200px;
+}
+.plant2 {
+    right: 15%;
+    width: 80px;
+    height: 200px;
+}
+@keyframes swim-left-to-right {
+    0% {
+        left: -100px;
+        transform: scaleX(1);
+    }
+    100% {
+        left: 100%;
+        transform: scaleX(1);
+    }
+}
+@keyframes swim-right-to-left {
+    0% {
+        left: 100%;
+        transform: scaleX(-1);
+    }
+    100% {
+        left: -100px;
+        transform: scaleX(-1);
+    }
+}
+@keyframes swim-turn-around {
+    0% {
+        left: -100px;
+        transform: scaleX(1);
+    }
+    45% {
+        transform: scaleX(1);
+    }
+    50% {
+        left: 60%;
+        transform: scaleX(-1);
+    }
+    95% {
+        transform: scaleX(-1);
+    }
+    100% {
+        left: -100px;
+        transform: scaleX(1);
+    }
+}
+@keyframes swim-turn-around-reverse {
+    0% {
+        left: 100%;
+        transform: scaleX(-1);
+    }
+    45% {
+        transform: scaleX(-1);
+    }
+    50% {
+        left: 30%;
+        transform: scaleX(1);
+    }
+    95% {
+        transform: scaleX(1);
+    }
+    100% {
+        left: 100%;
+        transform: scaleX(-1);
+    }
+}
+.bubble {
+    position: absolute;
+    bottom: 0;
+    width: 15px;
+    height: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: bubble-rise 6s infinite ease-in;
+}
+.bubble::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+}
+.bubble1 {
+    left: 15%;
+    animation-delay: 0s;
+}
+.bubble2 {
+    left: 30%;
+    animation-delay: 1.5s;
+    width: 12px;
+    height: 12px;
+}
+.bubble3 {
+    left: 50%;
+    animation-delay: 3s;
+    width: 18px;
+    height: 18px;
+}
+.bubble4 {
+    left: 70%;
+    animation-delay: 4.5s;
+}
+.bubble5 {
+    left: 85%;
+    animation-delay: 2s;
+    width: 10px;
+    height: 10px;
+}
+@keyframes bubble-rise {
+    0% {
+        bottom: 0;
+        opacity: 0;
+        transform: translateX(0) scale(0.5);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+        transform: translateX(10px) scale(1.2);
+    }
+}
+@media (max-width: 768px) {
+    .aquarium {
+        height: 400px;
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .fish {
+        width: 80px;
+        height: 60px;
+    }
+    .plant1, .plant2 {
+        width: 60px;
+        height: 150px;
+    }
+    .info {
+        padding: 15px;
+    }
+}
+@media (max-width: 480px) {
+    .aquarium {
+        height: 300px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .fish {
+        width: 60px;
+        height: 45px;
+    }
+    .plant1, .plant2 {
+        width: 40px;
+        height: 120px;
+    }
+}
